@@ -56,4 +56,4 @@ jobs:
       - name: Publish preview release
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/*.dmg dist/*.sha256 --title "OpenWriter Mac $GITHUB_REF_NAME" --notes-file RELEASE_NOTES.md --prerelease
+        run: gh release create "$GITHUB_REF_NAME" dist/*.dmg dist/*.sha256 --title "OpenWriter Mac $GITHUB_REF_NAME (Preview)" --notes-file RELEASE_NOTES.md

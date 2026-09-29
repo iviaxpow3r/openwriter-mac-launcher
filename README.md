@@ -29,7 +29,7 @@ On a Mac with Xcode Command Line Tools and Node.js 22:
 
 The script uses the committed npm lockfile, compiles the small Cocoa launcher for the current CPU architecture, ad hoc signs the app, creates `dist/OpenWriter-Mac-v<version>-<architecture>.dmg`, and verifies the DMG checksum. GitHub Actions builds both Apple Silicon and Intel variants for each release tag.
 
-To release an updated core version: merge the dependency update and build checks, bump `version` in `package.json` and `BUILD_NUMBER`, then push a matching `v<version>` tag. The tag workflow publishes both installers as a prerelease. Please test the released DMGs on actual Macs before recommending them broadly.
+To release an updated core version: merge the dependency update and build checks, bump `version` in `package.json` and `BUILD_NUMBER`, then push a matching `v<version>` tag. The tag workflow publishes both installers. Please test the released DMGs on actual Macs before recommending them broadly.
 
 ## Relationship to OpenWriter
 
