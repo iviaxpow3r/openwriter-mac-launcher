@@ -1,0 +1,11 @@
+{
+  "name": "openwriter-mac-launcher",
+  "version": "0.1.0",
+  "private": true,
+  "description": "A small macOS launcher for the official OpenWriter service",
+  "license": "MIT",
+  "dependencies": {
+    "openwriter": "0.41.3",
+    "sharp": "0.34.5"
+  }
+}
