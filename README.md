@@ -2,14 +2,14 @@
 
 A small, community-maintained Mac launcher for [OpenWriter](https://github.com/travsteward/openwriter). It bundles a pinned release of the official OpenWriter service and Node.js, starts the service for you, then opens the editor in your usual browser. You do not need Terminal, Node.js, or npm to use the app.
 
-## Install
+**Download status:** The source and Mac build checks are available, but there is no public installer release yet. macOS Gatekeeper rejects the current ad hoc signed build after download. A normal drag-to-Applications release needs Developer ID signing and Apple notarization. This does not require publishing through the Mac App Store. We will post the DMGs here when that install path is verified.
+
+## Install after the signed release
 
 1. Open the [latest GitHub release](https://github.com/iviaxpow3r/openwriter-mac-launcher/releases/latest).
 2. Download **arm64** for an Apple Silicon Mac (M1 or newer), or **x86_64** for an Intel Mac. To check, use Apple menu → **About This Mac** and look for **Chip** or **Processor**.
 3. Open the downloaded `.dmg` and drag **OpenWriter Mac** into **Applications**.
 4. Open **OpenWriter Mac** from Applications. It starts OpenWriter and opens the editor in your browser. Keep the Mac app running while you write; **Quit OpenWriter Mac** stops its service.
-
-**First launch of this preview release:** The app is ad hoc signed, without an Apple Developer ID or notarization. macOS may refuse to open it at first. If you downloaded it from the release page above and choose to trust it, attempt to open the app once, then go to **System Settings → Privacy & Security → Open Anyway**. Apple describes this process in [its Mac guide](https://support.apple.com/guide/mac-help/open-a-mac-app-from-an-unknown-developer-mh40616/mac). A Developer ID and notarization are the next step toward a normal double-click install.
 
 The app serves OpenWriter only on your Mac at `127.0.0.1:5050`. The official OpenWriter package stores your writing in `~/.openwriter`; replacing the app does not replace that folder. This launcher does not contain a personal profile or book files.
 
@@ -27,9 +27,9 @@ On a Mac with Xcode Command Line Tools and Node.js 22:
 ./scripts/build-dmg.sh
 ```
 
-The script uses the committed npm lockfile, compiles the small Cocoa launcher for the current CPU architecture, ad hoc signs the app, creates `dist/OpenWriter-Mac-v<version>-<architecture>.dmg`, and verifies the DMG checksum. GitHub Actions builds both Apple Silicon and Intel variants for each release tag.
+The script uses the committed npm lockfile, compiles the small Cocoa launcher for the current CPU architecture, ad hoc signs a development build, creates `dist/OpenWriter-Mac-v<version>-<architecture>.dmg`, and verifies the DMG checksum. GitHub Actions checks both Apple Silicon and Intel builds. These ad hoc DMGs are build artifacts, not ready-to-share installers.
 
-To release an updated core version: merge the dependency update and build checks, bump `version` in `package.json` and `BUILD_NUMBER`, then push a matching `v<version>` tag. The tag workflow publishes both installers. Please test the released DMGs on actual Macs before recommending them broadly.
+For future core updates, Dependabot proposes changes to the pinned `openwriter` package. Review and test those changes, then bump `version` in `package.json` and `BUILD_NUMBER`. Signed, notarized releases will be published after the distribution signing flow is in place.
 
 ## Relationship to OpenWriter
 

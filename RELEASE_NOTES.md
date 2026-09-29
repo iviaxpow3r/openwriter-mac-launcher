@@ -1,3 +1,0 @@
-First preview of the separate Mac launcher for OpenWriter. Download the DMG for your Mac's processor, drag the app to Applications, and open it. The launcher bundles OpenWriter 0.41.3, starts its local service, and opens the editor in your browser. Use **OpenWriter Mac → Check for Updates…** to find later releases.
-
-**Preview install note:** This build is ad hoc signed and has no Apple Developer ID or notarization. macOS may require **System Settings → Privacy & Security → Open Anyway** after your first attempt to open it. Only do this for a download you obtained from this release page and trust. See the [installation guide](https://github.com/iviaxpow3r/openwriter-mac-launcher#install) for details.

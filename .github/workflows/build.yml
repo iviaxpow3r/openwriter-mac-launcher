@@ -3,7 +3,6 @@ name: Build Mac installers
 on:
   push:
     branches: [main]
-    tags: ['v*']
   pull_request:
   workflow_dispatch:
 
@@ -37,23 +36,3 @@ jobs:
             dist/*.dmg
             dist/*.sha256
           if-no-files-found: error
-
-  release:
-    if: startsWith(github.ref, 'refs/tags/v')
-    needs: build
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/download-artifact@v4
-        with:
-          pattern: openwriter-mac-*
-          path: dist
-          merge-multiple: true
-      - name: Check tag matches app version
-        run: test "$GITHUB_REF_NAME" = "v$(node -p "require('./package.json').version")"
-      - name: Publish preview release
-        env:
-          GH_TOKEN: ${{ github.token }}
-        run: gh release create "$GITHUB_REF_NAME" dist/*.dmg dist/*.sha256 --title "OpenWriter Mac $GITHUB_REF_NAME (Preview)" --notes-file RELEASE_NOTES.md
