@@ -31,7 +31,7 @@ jobs:
         run: ./scripts/build-dmg.sh
       - uses: actions/upload-artifact@v4
         with:
-          name: openwriter-mac-${{ matrix.arch }}
+          name: UNSIGNED-TEST-ONLY-openwriter-mac-${{ matrix.arch }}
           path: |
             dist/*.dmg
             dist/*.sha256

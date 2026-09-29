@@ -2,7 +2,7 @@
 
 A small, community-maintained Mac launcher for [OpenWriter](https://github.com/travsteward/openwriter). It bundles a pinned release of the official OpenWriter service and Node.js, starts the service for you, then opens the editor in your usual browser. You do not need Terminal, Node.js, or npm to use the app.
 
-**Download status:** The source and Mac build checks are available, but there is no public installer release yet. macOS Gatekeeper rejects the current ad hoc signed build after download. A normal drag-to-Applications release needs Developer ID signing and Apple notarization. This does not require publishing through the Mac App Store. We will post the DMGs here when that install path is verified.
+**Download status:** The source and Mac build checks are available, but there is no public installer release yet. macOS Gatekeeper rejects the current ad hoc signed build after download. GitHub Actions artifacts are labeled **UNSIGNED-TEST-ONLY** and are not install downloads. A normal drag-to-Applications release needs Developer ID signing and Apple notarization. This does not require publishing through the Mac App Store. [Issue #2](https://github.com/iviaxpow3r/openwriter-mac-launcher/issues/2) tracks the remaining release work.
 
 ## Install after the signed release
 
